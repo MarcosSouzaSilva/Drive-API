@@ -1,0 +1,4 @@
+br\com\curso\Main.class
+br\com\curso\usecases\CreateVehicleUseCase.class
+br\com\curso\usecases\CreateUserUseCase.class
+br\com\curso\usecases\CreateCustomerUseCase.class
