@@ -23,7 +23,7 @@ public class VehicleController {
     }
 
     @PostMapping("/createVehicle")
-    public VehicleEntity createVehicle(@RequestHeader("Authorization") String authorization, @RequestBody Vehicle vehicle, HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws Exception {
+    public VehicleEntity createVehicle(@RequestHeader("Authorization") String authorization, @RequestBody Vehicle vehicle) throws Exception {
         return service.createVehicle(authorization, vehicle);
     }
 

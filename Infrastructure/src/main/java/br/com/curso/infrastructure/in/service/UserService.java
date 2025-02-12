@@ -43,29 +43,29 @@ public class UserService {
     @Transactional
     public ResponseEntity<?> createUser(User user) throws Exception {
 
-        createUserUseCase.createUser(user);
+        var userEntity = createUserUseCase.createUser(user);
 
-        var entity = userMapper.toUserEntity(user);
+        var entity = userMapper.toUserEntity(userEntity);
 
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-        var senhaDoEmailDoCara = customerJpaRepository.findByEmail(entity.getEmail());
+        var passwordOfEmail = customerJpaRepository.findByEmail(entity.getEmail());
 
-        if (senhaDoEmailDoCara.isEmpty()) throw new Exception("Email Nao existe mano");
+        if (passwordOfEmail.isEmpty()) throw new Exception("Email dont`t exist");
 
-        System.out.println(passwordEncoder.matches(entity.getPassword(), senhaDoEmailDoCara.get().getPassword()));
+        System.out.println(passwordEncoder.matches(entity.getPassword(), passwordOfEmail.get().getPassword()));
         System.out.println(entity.getPassword());
-        System.out.println(senhaDoEmailDoCara.get().getPassword());
+        System.out.println(passwordOfEmail.get().getPassword());
 
-        if (!passwordEncoder.matches(senhaDoEmailDoCara.get().getPassword(), entity.getPassword())) throw new InvalidCredentialsException();
+        if (!passwordEncoder.matches(entity.getPassword(), passwordOfEmail.get().getPassword()))
+            throw new InvalidCredentialsException();
 
         entity.setPassword(securityConfig.encode(entity.getPassword()));
 
         userJpaRepository.save(entity);
 
         return ResponseEntity.status(201).body(JwtUtil.generateToken(entity.getEmail()));
-        //preciso mudar o token gerado pela senha e gerar pelo email
-}
+    }
 
 
 }

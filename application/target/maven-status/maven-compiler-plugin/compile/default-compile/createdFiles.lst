@@ -1,7 +1,4 @@
 br\com\curso\Main.class
 br\com\curso\usecases\CreateCustomerUseCaseImpl.class
-br\com\curso\gateways\CreateUserGateway.class
-br\com\curso\gateways\CreateCustomerGateway.class
-br\com\curso\gateways\CreateVehicleGateway.class
 br\com\curso\usecases\CreateUserUseCaseImpl.class
 br\com\curso\usecases\CreateVehicleUseCaseImpl.class

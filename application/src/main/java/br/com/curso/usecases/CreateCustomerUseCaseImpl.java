@@ -22,7 +22,7 @@ public class CreateCustomerUseCaseImpl implements CreateCustomerUseCase {
 
 
     @Override
-    public Customer createCustomer(Customer customer) throws CustomerCreationException, InvalidCredentialsException, InvalidEmailException, InvalidPhoneNumberException {
+    public Customer createCustomer(Customer customer) throws CustomerCreationException, InvalidCredentialsException, InvalidEmailException, InvalidPhoneNumberException, InvalidTaxIdException {
         if (customer == null) throw new CustomerCreationException(ErrorCodeEnum.A0007.getMessage());
 
         if (!customer.getPassword().matches(patternPassword.pattern())) throw new InvalidCredentialsException();
@@ -31,7 +31,7 @@ public class CreateCustomerUseCaseImpl implements CreateCustomerUseCase {
 
         if (!customer.getPhoneNumber().matches(patternPhoneNumber.pattern())) throw new InvalidPhoneNumberException();
 
-        //if (!isValid(customer.getTaxId())) throw new InvalidTaxIdException();
+        if (!isValid(customer.getTaxId())) throw new InvalidTaxIdException();
 
         return customer;
     }

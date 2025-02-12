@@ -53,26 +53,14 @@ public class CustomerService {
 
         EntityModel<Customer> resource = EntityModel.of(customer);
 
-        var s = resource.add(
-                WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(CustomerController.class).deleteUser(customer)).withRel("Deleta Usuário")
-        ).add(
-                WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(CustomerController.class).updateUser(customer)).withRel("Atualiza Usuário")
-        ).add(
-                WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(CustomerController.class).createCustomer(customer)).withRel("Cria Usuário")
+        var addLinks = resource.add(
+                WebMvcLinkBuilder.linkTo(WebMvcLinkBuilder.methodOn(CustomerController.class).createCustomer(customer)).withRel("Create User")
         );
 
         customerJpaRepository.save(entity);
 
-
-        return s;
+        return addLinks;
 
     }
 
-    public CustomerEntity updateUser() {
-        return new CustomerEntity();
-    }
-
-    public CustomerEntity deleteUser() {
-        return new CustomerEntity();
-    }
 }

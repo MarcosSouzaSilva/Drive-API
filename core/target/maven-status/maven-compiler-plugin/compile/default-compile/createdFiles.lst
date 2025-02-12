@@ -1,13 +1,13 @@
 br\com\curso\exceptions\VehicleInvalidException.class
 br\com\curso\domain\Vehicle.class
 br\com\curso\exceptions\CustomerCreationException.class
-br\com\curso\exceptions\InvalidCpfException.class
 br\com\curso\exceptions\InvalidVinException.class
+br\com\curso\exceptions\UserNotFoundException.class
 br\com\curso\domain\User.class
 br\com\curso\domain\Customer.class
+br\com\curso\exceptions\InvalidCredentialsException.class
 br\com\curso\exceptions\UserCreationException.class
 br\com\curso\Main.class
-br\com\curso\exceptions\IdentifierNotFoundException.class
 br\com\curso\exceptions\InvalidPhoneNumberException.class
 br\com\curso\exceptions\InvalidTaxIdException.class
 br\com\curso\exceptions\enums\ErrorCodeEnum.class
@@ -15,6 +15,3 @@ br\com\curso\exceptions\VehicleCreationException.class
 br\com\curso\exceptions\InvalidLicensePlateException.class
 br\com\curso\exceptions\InvalidYearException.class
 br\com\curso\exceptions\InvalidEmailException.class
-br\com\curso\domain\modelosFuturos\Claim.class
-br\com\curso\exceptions\InvalidPasswordException.class
-br\com\curso\domain\modelosFuturos\VehicleInsurance.class

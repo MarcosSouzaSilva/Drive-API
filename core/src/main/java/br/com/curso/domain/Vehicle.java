@@ -20,9 +20,6 @@ public class Vehicle {
 
     private User user;
 
-
-
-
     public void setLicensePlate(String licensePlate) throws InvalidLicensePlateException {
         this.licensePlate = licensePlate;
 
